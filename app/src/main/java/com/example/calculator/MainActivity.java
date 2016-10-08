@@ -9,9 +9,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Button one, two, add, enter;
-    int number;//0 for add, 1 for subtract, 2 for multiply, 3 for divide, 
+    int sign;//0 for add, 1 for subtract, 2 for multiply, 3 for divide,
     private TextView test;
-    private String[] numbers;
+    private String[] numbers; //this is where all the numbers are stored
+    int holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,25 +23,49 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate() {
-        final int x = 0;
+         holder = 0;
 
         test.setText("0");
-        numbers = new String[3];
-        numbers[x]="0";
+        numbers = new String[2];
+        numbers[holder]="0";
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                numbers[x]+=1;
-                numbers[x]+="";
-                test.setText(numbers[x]);
+                numbers[holder]+=1;
+                numbers[holder ]+="";
+                test.setText(numbers[holder]);
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numbers[x]+=2;
-                test.setText(numbers[x]);
+                numbers[holder]+=2;
+                test.setText(numbers[holder]);
+            }
+        });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                holder++;
+                sign =1;
+                test.setText("0");
+                numbers[holder] = "0";
+
+            }
+
+        });
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int first = Integer.parseInt(numbers[0]);
+                int second = Integer.parseInt(numbers[1]);
+                if(sign ==1)
+                {
+                    int third = first + second;
+                    test.setText(third+"");
+                }
             }
         });
     }
