@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Button one, two, add, enter;
-    int number;
+    int number;//0 for add, 1 for subtract, 2 for multiply, 3 for divide, 
     private TextView test;
     private String[] numbers;
 
