@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 numbers[holder] = "0";
 
             }
-            
+
         });
 
         enter.setOnClickListener(new View.OnClickListener() {
