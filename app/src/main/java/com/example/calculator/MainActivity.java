@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     // see, we dont need a calculator class is we want this to work, sure it might be more efficient, but we dont need it.
     //also, instead of doing the anonymous inner-class, it may be easier to just do a normal listener as we dont have
     // to write a new class every single time
-    private Button one, two, three, four, five, add, subtract, enter;
+    private Button one, two, three, four, five, add, subtract, enter, allclear;
     int sign;//0 for add, 1 for subtract, 2 for multiply, 3 for divide,
     private TextView test;
     private String[] numbers; //this is where all the numbers are stored
@@ -109,6 +109,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        allclear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test.setText(0+"");
+                holder =0;
+                numbers[holder] = 0 + "";
+                numbers[holder+1] = 0 +"";
+
+            }
+        });
     }
 
     private void wire() {
@@ -121,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         three = (Button) findViewById(R.id.button_three);
         four = (Button) findViewById(R.id.button_four);
         five = (Button) findViewById(R.id.button_five);
+        allclear = (Button) findViewById(R.id.button_ac);
 
     }
 }
